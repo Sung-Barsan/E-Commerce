@@ -1,0 +1,60 @@
+{
+  "name": "nexora-commerce",
+  "version": "1.0.0",
+  "description": "A local-first academic e-commerce demo with EJS, MongoDB and simulated checkout",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "scripts": {
+    "dev": "node --watch src/server.js",
+    "start": "node src/server.js",
+    "build": "vite build",
+    "seed": "node scripts/seed.js",
+    "setup": "node scripts/setup.js",
+    "mail": "node scripts/mail.js",
+    "bootstrap": "node scripts/bootstrap.js",
+    "test": "vitest run",
+    "lint": "node scripts/check.js",
+    "demo:temporary": "node scripts/demo.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "UNLICENSED",
+  "type": "module",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "chart.js": "^4.6.1",
+    "connect-mongo": "^6.0.0",
+    "dotenv": "^18.0.10",
+    "ejs": "^7.0.2",
+    "express": "^5.3.0",
+    "express-rate-limit": "^8.7.4",
+    "express-session": "^1.19.0",
+    "gsap": "^3.15.1",
+    "helmet": "^8.3.0",
+    "lucide": "^1.73.0",
+    "mongoose": "^9.12.1",
+    "multer": "^2.5.0",
+    "pino": "^10.4.0",
+    "sharp": "^0.35.5",
+    "socket.io": "^4.8.4",
+    "three": "^0.187.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.5",
+    "@tailwindcss/vite": "^4.3.5",
+    "mongodb-memory-server": "^11.3.0",
+    "prettier": "^3.10.1",
+    "socket.io-client": "^4.8.4",
+    "supertest": "^7.3.2",
+    "tailwindcss": "^4.3.5",
+    "vite": "^8.3.8",
+    "vitest": "^5.1.0"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=24 <25"
+  }
+}
