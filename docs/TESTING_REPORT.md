@@ -1,5 +1,14 @@
 # Testing report
 
+## Verified GitHub CI result
+
+[GitHub Actions run 43625367623](https://github.com/Sung-Barsan/E-Commerce/actions/runs/43625367623) completed successfully for application commit `24795adb1fee6509edefa29e4f0900c719efff94`. The job logs were reviewed on 17 November 2026.
+
+- Clean dependency installation, syntax checks and production build passed.
+- **47 tests passed across 3 files:** 18 MongoDB integration/security/concurrency/socket tests, 23 template/escaping tests and 6 policy/pricing tests.
+- The integration tests used a real disposable MongoDB 7.0.24 replica set on the Ubuntu runner with Node.js 24.22.2.
+- This resolves the database verification gap caused by the local workspace restrictions below. Browser visual/layout QA remains pending; passing server tests does not verify responsive rendering or complete every requested feature.
+
 ## Actual local results — 14 November 2026
 
 | Check | Result |
@@ -14,9 +23,9 @@
 
 MongoDB 8.2.3 initially aborted in allocator CPU detection. The compatible 7.0.24 test binary then exited during initialization with `open: Operation not permitted`. The default disposable test/demo version is 7.0.24 and can be overridden through `MONGOMS_VERSION`. No security controls were bypassed to run these processes.
 
-The EJS tests use explicit fixture documents; they prove template rendering and escaping, **not MongoDB connectivity or end-to-end behavior**. Source inspection found and corrected Mongoose 9's required `updatePipeline` option and `ordered: true` for multi-document `create` within a session. These fixes still require real database execution.
+The EJS tests use explicit fixture documents; they prove template rendering and escaping, **not MongoDB connectivity or end-to-end behavior**. Source inspection found and corrected Mongoose 9's required `updatePipeline` option and `ordered: true` for multi-document `create` within a session. These fixes were subsequently exercised by the successful GitHub integration run above.
 
-## Written integration cases
+## Integration cases passed in GitHub CI
 
 - Database-backed public pages, search and every dashboard/module page.
 - Guest/private boundaries and cross-role dashboard denial.
@@ -35,7 +44,7 @@ The EJS tests use explicit fixture documents; they prove template rendering and 
 
 ## CI
 
-`.github/workflows/ci.yml` runs install, syntax validation, build and the complete suite on an Ubuntu runner. A workflow definition does not establish a successful run. Inspect GitHub Actions results and resolve any failure before describing the project as fully verified.
+`.github/workflows/ci.yml` runs install, syntax validation, build and the complete suite on an Ubuntu runner. The run linked above passed all checks. This establishes the results of the included tests, not exhaustive feature, visual or security verification.
 
 ## Manual acceptance checklist still pending
 
